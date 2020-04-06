@@ -3,9 +3,6 @@
     <app-recipe-list></app-recipe-list>
   </div>
   <div class="col-md-7">
-    <app-recipe-detail *ngIf="selectedRecipeItem; else noRecipe" [showItemDetails]="selectedRecipeItem"></app-recipe-detail>
-    <ng-template #noRecipe>
-      <h3>There is No Recipe Found!</h3>
-    </ng-template>
+    <router-outlet></router-outlet>
   </div>
 </div>

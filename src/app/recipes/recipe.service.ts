@@ -13,28 +13,34 @@ export class RecipeService {
   constructor(private shoppingListService: ShoppingListService) {
   }
 
-  private recipes: Recipe[] = [
-    new Recipe('A Test Recipe',
-     'Tasty Schnitzel',
-      'https://image.shutterstock.com/z/stock-photo-tasty-schnitzel-with-potato-chips-537082519.jpg',
-       [
-         new Ingredient('Meat', 1),
-         new Ingredient('French Fries', 20),
-       ]),
-    new Recipe('Big Fat Burger',
-     'What else you need to say?',
-      'https://www.girardatlarge.com/wp-content/uploads/2014/02/Burger.jpg',
-       [
-         new Ingredient('Buns', 2),
-         new Ingredient('Meat', 1)
-       ])
-  ];
+  private recipes: Recipe[] = [];
+  // private recipes: Recipe[] = [
+  //   new Recipe('A Test Recipe',
+  //    'Tasty Schnitzel',
+  //     'https://image.shutterstock.com/z/stock-photo-tasty-schnitzel-with-potato-chips-537082519.jpg',
+  //      [
+  //        new Ingredient('Meat', 1),
+  //        new Ingredient('French Fries', 20),
+  //      ]),
+  //   new Recipe('Big Fat Burger',
+  //    'What else you need to say?',
+  //     'https://www.girardatlarge.com/wp-content/uploads/2014/02/Burger.jpg',
+  //      [
+  //        new Ingredient('Buns', 2),
+  //        new Ingredient('Meat', 1)
+  //      ])
+  // ];
+
+  setRecipe(recipes: Recipe[]) {
+    this.recipes = recipes;
+    this.recipeChanged.next([...this.recipes]);
+  }
 
   getSpecificRecipe(position) {
     return this.recipes[position];
   }
 
-  get getRecipe() {
+  getRecipe() {
     return [...this.recipes];
   }
 
